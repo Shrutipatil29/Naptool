@@ -25,7 +25,7 @@ public class AddToCartTest extends BaseTest {
     @BeforeTest
     public  void CreateReports()
     {
-        extentReports= Reports.generateReports();
+        extentReports= Reports.generateTestReports();
     }
 
     private NaptoolHomePage naptoolHomePage;

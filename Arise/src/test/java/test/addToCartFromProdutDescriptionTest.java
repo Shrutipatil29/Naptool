@@ -15,6 +15,7 @@ import pom.*;
 import utility.Reports;
 
 import static test.BaseTest.driver;
+import static utility.Reports.*;
 
 @Listeners(test.Listeners.class)
 
@@ -27,7 +28,7 @@ public class addToCartFromProdutDescriptionTest extends BasePage {
     @BeforeTest
             public  void CreateReports()
     {
-      extentReports= Reports.generateReports();
+      extentReports= Reports.generateTestReports();
     }
 
     @BeforeMethod

@@ -22,7 +22,7 @@ public class ProductSearchTest extends BaseTest{
         @BeforeTest
         public  void CreateReports()
         {
-            extentReports= Reports.generateReports();
+            extentReports= Reports.generateTestReports();
         }
 
     @BeforeMethod

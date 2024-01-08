@@ -20,7 +20,7 @@ public class VerifyShoppingCategoriesTest extends BaseTest {
     @BeforeTest
     public  void CreateReports()
     {
-        extentReports= Reports.generateReports();
+        extentReports= Reports.generateTestReports();
     }
 
     @BeforeMethod
