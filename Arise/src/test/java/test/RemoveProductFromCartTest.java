@@ -51,6 +51,9 @@ public class RemoveProductFromCartTest extends BaseTest {
 
         cartPage.ClickOnRemoveProductFromCart(driver);
 
+        int value=cartPage.getNumberOfProdutsPresentInCart(driver)-1;
+        Assert.assertEquals(value, 0);
+
 
 
 
