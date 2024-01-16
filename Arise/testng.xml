@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Naaptol Project">
+    <test thread-count="5"  verbose="2" preserve-order="true" name="/Users/ac02d77qnmd6m/Downloads/Arise">
+        <classes>
+            <class name="test.AddToCartTest">
+            <methods>
+                <include name="verifyIfUserIsAbleToAddProductToCartUsingQuickViewOption"/>
+                <include name="verifyIfUserIsAbleToAddMultipleProductsInCart"/>
+            </methods></class>
+            <class name="test.ProductSearchTest">
+            <methods>
+                <include name="verifyIfProdutsAreDisplayedOnValidSearch"/>
+                <exclude name="verifyIfProdutsAreNotDisplayedOnInvalidSearch"/>
+            </methods>
+            </class>
+            <class name="test.RemoveProductFromCartTest">
+            <methods>
+                <include name="verifyIfUserIsAbleToRemoveProductFromCart"/>
+            </methods>
+            </class>
+            <class name="test.VerifyShoppingCategoriesTest">
+            <methods>
+                <include name="verifyIfUserIsAbleToAccessShoppingCategories"/>
+            </methods>
+            </class>
+            <class name="test.addToCartFromProdutDescriptionTest">
+            <methods>
+                <include name="verifyIfUserIsAbleToAddProductToCartUsingDescription"/>
+            </methods>
+            </class></classes>
+    </test>
+</suite>
