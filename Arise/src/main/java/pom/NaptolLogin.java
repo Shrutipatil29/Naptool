@@ -5,11 +5,12 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
-public class NaptolLogin {
+public class NaptolCheckout {
 
     @FindBy(xpath = "//a[@id='login-panel-link']")private WebElement LogIn;
     @FindBy(xpath = "//input[@id='registration-basic-panel-mobile']")private WebElement EnterMobileNumber;
@@ -18,8 +19,21 @@ public class NaptolLogin {
 
     @FindBy(xpath = "(//div//b)[1]")private WebElement loginUserName;
 
+    @FindBy(xpath = "//a[@class='red_button2']")private WebElement Checkout;
 
-    public NaptolLogin(WebDriver driver) {
+    @FindBy(xpath = "//select[@class='input_Special']")private WebElement title;
+    @FindBy(xpath = "//input[@name='firstName']")private WebElement firstName;
+    @FindBy(xpath = "//input[@name='lastName']")private WebElement LastName;
+    @FindBy(xpath = "//textarea[@name='address']")private WebElement Address;
+    @FindBy(xpath = "//input[@name='pincode']")private WebElement pincode;
+    @FindBy(xpath = "//input[@name='mobile']")private WebElement mobileNumber;
+    @FindBy(xpath = "//a[@id='addEditButton']")private WebElement saveAndProceed;
+
+    @FindBy(xpath = "//a[@class='button_2']")private WebElement shipToThisAddress;
+
+
+
+    public NaptolCheckout(WebDriver driver) {
         PageFactory.initElements(driver, this);
     }
 
@@ -45,6 +59,33 @@ public class NaptolLogin {
          String userName= loginUserName.getText();
 
          return userName;
+
+    }
+
+    public void clickOnCheckout(){
+
+        Checkout.click();
+    }
+
+    public void selectShippingAddress(){
+
+        Select titleSelect = new Select(title);
+
+        // Select the desired title by visible text
+        titleSelect.selectByVisibleText("Miss.");
+        firstName.sendKeys("shruti");
+        LastName.sendKeys("patil");
+        Address.sendKeys("LALUK");
+        pincode.sendKeys("784160");
+
+
+        mobileNumber.sendKeys("9131301718");
+        saveAndProceed.click();
+        shipToThisAddress.click();
+
+
+
+
 
     }
 
