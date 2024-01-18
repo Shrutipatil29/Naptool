@@ -1,18 +1,33 @@
 package test;
 
+import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.ExtentTest;
+import org.testng.Assert;
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import pojo.browser;
 import pom.NaptolCheckout;
 import pom.NaptoolHomePage;
 import pom.ProductQuickViewPage;
 import pom.ProductResultPage;
+import utility.Reports;
 
 import static test.BaseTest.driver;
 
 public class NaptolCheckoutTest {
 
     private String name;
+    ExtentReports extentReports;
+    ExtentTest extentTest;
+
+    @BeforeTest
+    public  void CreateReports()
+    {
+        extentReports= Reports.generateTestReports();
+    }
+
 
     @BeforeMethod
     public void openApplication() {
@@ -23,6 +38,8 @@ public class NaptolCheckoutTest {
 
     @Test
     public void NaptolLoginTest() throws InterruptedException {
+
+        extentTest=extentReports.createTest("NaptolLoginTest");
 
         NaptolCheckout naptollogin= new NaptolCheckout(driver);
         naptollogin.RegisterLoginInNaptol(driver);
@@ -45,11 +62,24 @@ public class NaptolCheckoutTest {
 
         naptollogin.clickOnCheckout();
         naptollogin.selectShippingAddress();
-         placeOrder.click();
+
+        naptollogin.placeOrderNow(driver);
+
+        System.out.println(naptollogin.getOrderAmount());
+
+
+        Assert.assertEquals(naptollogin.getOrderAmount(),800);
 
 
 
 
+
+    }
+    @AfterTest
+
+    public void flushReports()
+    {
+        extentReports.flush();
     }
 
 
