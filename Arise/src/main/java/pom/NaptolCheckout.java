@@ -28,6 +28,8 @@ public class NaptolCheckout {
     @FindBy(xpath = "//input[@name='pincode']")private WebElement pincode;
     @FindBy(xpath = "//input[@name='mobile']")private WebElement mobileNumber;
     @FindBy(xpath = "//a[@id='addEditButton']")private WebElement saveAndProceed;
+     @FindBy(xpath = "//a[@class='red_button_normal']")private WebElement placeOrder;
+
 
     @FindBy(xpath = "//a[@class='button_2']")private WebElement shipToThisAddress;
 
@@ -82,6 +84,7 @@ public class NaptolCheckout {
         mobileNumber.sendKeys("9131301718");
         saveAndProceed.click();
         shipToThisAddress.click();
+         placeOrder.click();
 
 
 
