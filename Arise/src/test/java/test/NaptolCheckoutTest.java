@@ -45,6 +45,7 @@ public class NaptolCheckoutTest {
 
         naptollogin.clickOnCheckout();
         naptollogin.selectShippingAddress();
+         placeOrder.click();
 
 
 
